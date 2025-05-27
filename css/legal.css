@@ -1,0 +1,51 @@
+/* Legal Document Styling */
+.legal-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    line-height: 1.8;
+}
+
+.effective-date {
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.policy-section {
+    margin: 3rem 0;
+}
+
+.policy-section h2 {
+    color: #0066cc;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.security-card {
+    text-align: center;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.security-card i {
+    font-size: 2rem;
+    color: #0066cc;
+    margin-bottom: 1rem;
+}
+
+.contact-compliance {
+    background: #e6f2ff;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+}

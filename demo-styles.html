@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Demo | Tender Shade</title>
+    <meta name="robots" content="noindex, nofollow"> <!-- Prevent indexing of demo page -->
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Link to the main stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/demo-styles.css">
+    </style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div data-include="components/header.html"></div>
+
+    <!-- Demo Page Header -->
+    <section class="page-header" style="background-image: linear-gradient(rgba(0, 33, 71, 0.8), rgba(0, 33, 71, 0.8)), url('images/page banners/Contact Us.jpg');">
+        <div class="container">
+            <h1>Style Demo Page</h1>
+            <p>Showcasing potential new components and enhanced styles.</p>
+        </div>
+    </section>
+    
+    <!-- Advanced Search Section -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="demo-section-title">Advanced Tender Search (Demo)</h2>
+            <div class="advanced-search">
+                <form>
+                    <div class="search-grid">
+                        <div class="search-group">
+                            <label for="keywords" class="search-label">Keywords</label>
+                            <input type="text" id="keywords" name="keywords" class="search-input" placeholder="e.g., IT services, construction">
+                        </div>
+                        <div class="search-group">
+                            <label for="category" class="search-label">Category</label>
+                            <select id="category" name="category" class="search-select">
+                                <option value="">All Categories</option>
+                                <option value="goods">Goods</option>
+                                <option value="services">Services</option>
+                                <option value="works">Works</option>
+                            </select>
+                        </div>
+                        <div class="search-group">
+                            <label for="location" class="search-label">Location</label>
+                            <select id="location" name="location" class="search-select">
+                                <option value="">All Locations</option>
+                                <option value="delhi">Delhi NCR</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="india">Pan India</option>
+                            </select>
+                        </div>
+                        <div class="search-group">
+                            <label for="portal" class="search-label">Portal</label>
+                            <select id="portal" name="portal" class="search-select">
+                                <option value="">All Portals</option>
+                                <option value="gem">GeM</option>
+                                <option value="cppp">CPPP</option>
+                                <option value="irpes">IRPES</option>
+                                <option value="state">State Portals</option>
+                            </select>
+                        </div>
+                        <div class="search-button-group">
+                            <button type="submit" class="btn btn-primary btn-search">Search Tenders</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tenders Section -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="demo-section-title">Featured Tenders (Demo)</h2>
+            <div class="featured-tenders-grid">
+                <!-- Tender Card 1 -->
+                <div class="tender-card">
+                    <div class="tender-card-header">
+                        <h3 class="tender-card-title">Supply of IT Hardware to Government Department</h3>
+                        <div class="tender-card-meta">
+                            <span><i class="fas fa-tag"></i> Goods</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Delhi NCR</span>
+                            <span><i class="fas fa-calendar-alt"></i> Deadline: 2024-08-15</span>
+                        </div>
+                    </div>
+                    <div class="tender-card-body">
+                        <p>Requirement for the supply, installation, and maintenance of desktop computers, laptops, and printers for a central government office.</p>
+                    </div>
+                    <div class="tender-card-footer">
+                        <a href="#" class="btn btn-outline btn-details">View Details</a>
+                    </div>
+                </div>
+                <!-- Tender Card 2 -->
+                <div class="tender-card">
+                    <div class="tender-card-header">
+                        <h3 class="tender-card-title">Annual Maintenance Contract for HVAC Systems</h3>
+                        <div class="tender-card-meta">
+                            <span><i class="fas fa-tag"></i> Services</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Mumbai</span>
+                            <span><i class="fas fa-calendar-alt"></i> Deadline: 2024-08-20</span>
+                        </div>
+                    </div>
+                    <div class="tender-card-body">
+                        <p>Seeking bids for a comprehensive annual maintenance contract (AMC) for HVAC systems installed across multiple government buildings in Mumbai.</p>
+                    </div>
+                    <div class="tender-card-footer">
+                        <a href="#" class="btn btn-outline btn-details">View Details</a>
+                    </div>
+                </div>
+                <!-- Tender Card 3 -->
+                <div class="tender-card">
+                    <div class="tender-card-header">
+                        <h3 class="tender-card-title">Construction of Primary Health Center</h3>
+                        <div class="tender-card-meta">
+                            <span><i class="fas fa-tag"></i> Works</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Maharashtra</span>
+                            <span><i class="fas fa-calendar-alt"></i> Deadline: 2024-09-01</span>
+                        </div>
+                    </div>
+                    <div class="tender-card-body">
+                        <p>Tender invitation for the construction of a new Primary Health Center (PHC) building in a rural district of Maharashtra, including civil works and basic amenities.</p>
+                    </div>
+                    <div class="tender-card-footer">
+                        <a href="#" class="btn btn-outline btn-details">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="demo-section-title">Client Testimonials (Demo)</h2>
+            <div class="testimonial-grid">
+                <!-- Testimonial Cards -->
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right testimonial-quote-icon"></i>
+                    <p class="testimonial-text">Tender Shade made the GeM registration process incredibly smooth for us. Their team was knowledgeable, responsive, and guided us through every step. Highly recommended!</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonials/avatar1.jpg" alt="Client Avatar" class="testimonial-author-avatar">
+                        <div class="testimonial-author-info">
+                            <h4>Amit Sharma</h4>
+                            <span>CEO, Innovate Solutions Pvt. Ltd.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right testimonial-quote-icon"></i>
+                    <p class="testimonial-text">Managing bids across multiple portals was overwhelming until we partnered with Tender Shade. Their expertise in tracking and bid preparation has significantly increased our success rate.</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonials/avatar2.jpg" alt="Client Avatar" class="testimonial-author-avatar">
+                        <div class="testimonial-author-info">
+                            <h4>Priya Singh</h4>
+                            <span>Director, Synergy Enterprises</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right testimonial-quote-icon"></i>
+                    <p class="testimonial-text">The team at Tender Shade is professional and provides excellent support. They helped us navigate complex tender documents and secure a major government contract.</p>
+                    <div class="testimonial-author">
+                        <img src="images/testimonials/avatar3.jpg" alt="Client Avatar" class="testimonial-author-avatar">
+                        <div class="testimonial-author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <span>Owner, Kumar Constructions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Search Section -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="demo-section-title">Enhanced Tender Search (Demo)</h2>
+            <div class="advanced-search">
+                <form>
+                    <div class="enhanced-search-grid">
+                        <div class="search-group">
+                            <label for="enh-keywords" class="search-label">Keywords</label>
+                            <input type="text" id="enh-keywords" name="keywords" class="search-input" placeholder="e.g., IT services, construction">
+                        </div>
+                        <div class="search-group">
+                            <label for="enh-category" class="search-label">Category</label>
+                            <select id="enh-category" name="category" class="search-select">
+                                <option value="">All Categories</option>
+                                <option value="goods">Goods</option>
+                                <option value="services">Services</option>
+                                <option value="works">Works</option>
+                            </select>
+                        </div>
+                        <div class="search-group">
+                            <label for="enh-location" class="search-label">Location</label>
+                            <select id="enh-location" name="location" class="search-select">
+                                <option value="">All Locations</option>
+                                <option value="delhi">Delhi NCR</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="india">Pan India</option>
+                            </select>
+                        </div>
+                        <div class="search-group">
+                            <label for="enh-portal" class="search-label">Portal</label>
+                            <select id="enh-portal" name="portal" class="search-select">
+                                <option value="">All Portals</option>
+                                <option value="gem">GeM</option>
+                                <option value="cppp">CPPP</option>
+                                <option value="irpes">IRPES</option>
+                                <option value="state">State Portals</option>
+                            </select>
+                        </div>
+                         <div class="search-group">
+                            <label for="tender-value-min" class="search-label">Min Value (₹)</label>
+                            <input type="number" id="tender-value-min" name="value_min" class="search-input" placeholder="e.g., 50000">
+                        </div>
+                         <div class="search-group">
+                            <label for="tender-value-max" class="search-label">Max Value (₹)</label>
+                            <input type="number" id="tender-value-max" name="value_max" class="search-input" placeholder="e.g., 1000000">
+                        </div>
+                         <div class="search-group">
+                            <label for="closing-date-start" class="search-label">Closing From</label>
+                            <input type="date" id="closing-date-start" name="date_start" class="search-input">
+                        </div>
+                        <div class="search-group">
+                            <label for="closing-date-end" class="search-label">Closing To</label>
+                            <input type="date" id="closing-date-end" name="date_end" class="search-input">
+                        </div>
+                        <div class="search-button-group" style="grid-column: 1 / -1;"> <!-- Force full width always -->
+                            <button type="reset" class="btn btn-outline" style="margin-right: 1rem;">Reset Filters</button>
+                            <button type="submit" class="btn btn-primary btn-search">Search Tenders</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Statistics Section -->
+    <section class="demo-section stats-section">
+        <div class="container">
+            <h2 class="demo-section-title" style="color: var(--white);">Our Impact in Numbers (Demo)</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-file-signature"></i>
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Tenders Processed</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-handshake"></i>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-network-wired"></i>
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Portals Covered</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-percentage"></i>
+                    <div class="stat-number">95%+</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse by Sector Section -->
+    <section class="demo-section">
+        <div class="container">
+             <h2 class="demo-section-title">Browse Tenders by Sector (Demo)</h2>
+             <div class="sector-grid">
+                <a href="#" class="sector-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>IT & Software</h4>
+                </a>
+                 <a href="#" class="sector-card">
+                    <i class="fas fa-hard-hat"></i>
+                    <h4>Construction & Infra</h4>
+                </a>
+                 <a href="#" class="sector-card">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Manufacturing</h4>
+                </a>
+                 <a href="#" class="sector-card">
+                    <i class="fas fa-briefcase-medical"></i>
+                    <h4>Healthcare</h4>
+                </a>
+                 <a href="#" class="sector-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>Consultancy Services</h4>
+                </a>
+                 <a href="#" class="sector-card">
+                    <i class="fas fa-truck"></i>
+                    <h4>Logistics & Supply Chain</h4>
+                </a>
+                 <a href="#" class="sector-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Education</h4>
+                </a>
+                 <a href="#" class="sector-card">
+                    <i class="fas fa-ellipsis-h"></i>
+                    <h4>Other Sectors</h4>
+                </a>
+             </div>
+        </div>
+    </section>
+
+    <!-- Tender Details Preview Section -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="demo-section-title">Tender Details Preview (Static Demo)</h2>
+            <div class="tender-details-layout">
+                <!-- Main Content Area -->
+                <div class="tender-main-content">
+                    <h3 class="tender-detail-title">Supply and Installation of Network Equipment</h3>
+                    <div class="tender-meta-grid">
+                        <div class="meta-item">
+                            <strong>Tender ID:</strong>
+                            <span>GEM/2024/B/1234567</span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>Category:</strong>
+                            <span>Goods</span>
+                        </div>
+                         <div class="meta-item">
+                            <strong>Portal:</strong>
+                            <span>GeM</span>
+                        </div>
+                         <div class="meta-item">
+                            <strong>Published:</strong>
+                            <span>2024-07-15</span>
+                        </div>
+                         <div class="meta-item">
+                            <strong>Closing:</strong>
+                            <span>2024-08-05 17:00</span>
+                        </div>
+                         <div class="meta-item">
+                            <strong>Value (Est.):</strong>
+                            <span>₹ 2,500,000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tender-section tender-description">
+                        <h4>Description</h4>
+                        <p>This tender invites bids for the supply, installation, configuration, and maintenance of network switches, routers, and access points for the newly established IT department wing. Bidders must meet the specified technical qualifications and have prior experience in similar projects.</p>
+                        <p>Refer to the attached BoQ and technical specification documents for detailed requirements.</p>
+                    </div>
+                    
+                    <div class="tender-section tender-eligibility">
+                        <h4>Eligibility Criteria</h4>
+                        <ul>
+                            <li>Minimum 3 years of experience in supplying network hardware.</li>
+                            <li>Annual turnover of at least ₹ 1 Crore in the last financial year.</li>
+                            <li>OEM Authorization required.</li>
+                            <li>Bidder must be registered on GeM.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sidebar Area -->
+                <div class="tender-sidebar">
+                    <div class="card tender-actions">
+                         <h4>Actions</h4>
+                         <button class="btn btn-primary btn-apply" style="margin-bottom: 1rem;">Apply for this Tender</button>
+                         <button class="btn btn-outline" style="width: 100%; margin-bottom: 0.5rem;">Save Tender</button>
+                         <button class="btn btn-outline" style="width: 100%;">Set Alert</button>
+                    </div>
+                    <div class="card tender-documents">
+                         <h4>Documents</h4>
+                         <ul>
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> Tender Notice.pdf</a></li>
+                            <li><a href="#"><i class="fas fa-file-excel"></i> BoQ_Network.xlsx</a></li>
+                            <li><a href="#"><i class="fas fa-file-word"></i> Technical_Specs.docx</a></li>
+                            <li><a href="#"><i class="fas fa-file-alt"></i> General_Terms.txt</a></li>
+                         </ul>
+                    </div>
+                     <div class="card tender-contact">
+                         <h4>Contact Person</h4>
+                         <p style="margin-bottom: 0.5rem;"><strong>Name:</strong> Mr. A. K. Singh</p>
+                         <p style="margin-bottom: 0;"><strong>Email:</strong> purchasing@department.gov.in</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div data-include="components/footer.html"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script> <!-- Needed for header/footer loading -->
+    <script src="js/script.js"></script>
+</body>
+</html>

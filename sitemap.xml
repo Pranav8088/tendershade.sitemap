@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        
+    <!-- Homepage -->
+    <url>
+        <loc>https://tendershade.com/</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Main Service Hub Pages -->
+    <url>
+        <loc>https://tendershade.com/tendering-solutions.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/gem-expertise.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- GeM Portal Services -->
+    <url>
+        <loc>https://tendershade.com/gem-portal-services.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/gem-registration.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/vendor-assessment.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/gem-account-management.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/bid-management.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Multi-Portal Services -->
+    <url>
+        <loc>https://tendershade.com/multi-portal-services.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/portal-registration.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Document Support & Compliance -->
+    <url>
+        <loc>https://tendershade.com/document-support.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/technical-support.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Post-Bid Services -->
+    <url>
+        <loc>https://tendershade.com/post-bid-services.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Supporting Pages -->
+    <url>
+        <loc>https://tendershade.com/about.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/knowledge-hub.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/contact.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Legal Pages -->
+    <url>
+        <loc>https://tendershade.com/privacy.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://tendershade.com/terms.html</loc>
+        <lastmod>2024-08-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+</urlset>

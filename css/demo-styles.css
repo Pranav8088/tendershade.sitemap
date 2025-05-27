@@ -1,0 +1,353 @@
+/* Demo-specific styles */
+body {
+    background-color: #f0f4f8; /* Slightly different background for demo */
+}
+.demo-section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+.demo-section:last-child {
+    border-bottom: none;
+}
+.demo-section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+}
+
+/* Advanced Search Component Styles */
+.advanced-search {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+}
+.search-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+}
+.search-group {
+    margin-bottom: 0; /* Remove default bottom margin */
+}
+.search-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+.search-input,
+.search-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+.search-input:focus,
+.search-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--rgb-primary), 0.1);
+}
+.search-button-group {
+    grid-column: 1 / -1; /* Span full width on smaller screens */
+    text-align: right;
+    margin-top: 1rem;
+}
+@media (min-width: 992px) {
+    .search-button-group {
+        grid-column: auto; /* Reset span */
+        margin-top: 0;
+    }
+}
+.btn-search {
+    padding: 0.8rem 2rem;
+}
+
+/* Featured Tenders Styles */
+.featured-tenders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.tender-card {
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+.tender-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+.tender-card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.tender-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+.tender-card-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+.tender-card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.tender-card-meta i {
+    color: var(--primary-color);
+}
+.tender-card-body {
+    padding: 1.5rem;
+    flex-grow: 1; /* Ensure body takes remaining space */
+}
+.tender-card-body p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+.tender-card-footer {
+    padding: 1rem 1.5rem;
+    background-color: var(--background-light);
+    border-top: 1px solid var(--border-color);
+    text-align: right;
+}
+.btn-details {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Testimonial Styles */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.testimonial-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    border-left: 5px solid var(--primary-color);
+}
+.testimonial-quote-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    color: rgba(var(--rgb-primary), 0.1);
+}
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.testimonial-author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+.testimonial-author-info h4 {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+.testimonial-author-info span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Enhanced Search Grid Styles */
+.enhanced-search-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Allow more columns */
+    gap: 1.5rem;
+    align-items: end;
+}
+.search-date-range {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.search-date-range span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Key Statistics Section */
+.stats-section {
+    background: var(--secondary-dark);
+    color: var(--white);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+.stat-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-secondary);
+}
+.stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Browse by Sector Section */
+.sector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+.sector-card {
+    background: var(--white);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border-color-light);
+    text-decoration: none;
+    color: var(--text-primary);
+}
+.sector-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.sector-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
+    transition: var(--transition);
+}
+.sector-card:hover i {
+     color: var(--primary-dark);
+}
+.sector-card h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Tender Details Preview */
+.tender-details-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main content and sidebar */
+    gap: 2.5rem;
+}
+.tender-main-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+}
+.tender-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.tender-sidebar .card {
+     padding: 1.5rem;
+}
+.tender-detail-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+.tender-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+.meta-item strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+.meta-item span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.tender-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+.tender-documents ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.tender-documents li {
+    margin-bottom: 0.75rem;
+}
+.tender-documents a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.tender-documents a:hover {
+     text-decoration: underline;
+     color: var(--primary-dark);
+}
+.btn-apply {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+}
+@media (max-width: 992px) {
+    .tender-details-layout {
+         grid-template-columns: 1fr;
+    }
+}

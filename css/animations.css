@@ -1,0 +1,135 @@
+/* Animations for Tender Shade Website */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Left Animation */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In Right Animation */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-in-left {
+    animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-in-right {
+    animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Delay Classes */
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-400 {
+    animation-delay: 400ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+/* Animate on Scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-up {
+    transform: translateY(30px);
+}
+
+.fade-left {
+    transform: translateX(-30px);
+}
+
+.fade-right {
+    transform: translateX(30px);
+}
+
+.scale-up {
+    transform: scale(0.9);
+}
+
+/* Add this script to your JS file:
+
+function initAnimateOnScroll() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initAnimateOnScroll);
+*/ 
