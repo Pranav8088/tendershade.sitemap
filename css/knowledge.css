@@ -52,11 +52,17 @@
 }
 
 .search-bar button {
-    background: white;
-    border: none;
+    background: var(--neutral-900); /* Black background */
+    color: var(--neutral-50); /* White text */
+    border: 1px solid var(--neutral-900);
     padding: 0 1.5rem;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
+}
+
+.search-bar button:hover {
+    background: var(--neutral-700);
+    border-color: var(--neutral-700);
 }
 
 .resource-categories {
@@ -113,12 +119,16 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: #0066cc;
-    color: white;
+    background: var(--neutral-900); /* Black background */
+    color: var(--neutral-50); /* White text */
     padding: 0.8rem 1.5rem;
     border-radius: 4px;
     text-decoration: none;
     margin-top: 1rem;
+}
+
+.download-btn:hover {
+    background: var(--neutral-700);
 }
 
 .knowledge-faq {
@@ -322,7 +332,15 @@
 }
 
 .newsletter-form button {
+    background: var(--neutral-900); /* Black background */
+    color: var(--neutral-50); /* White text */
+    border: 1px solid var(--neutral-900);
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.newsletter-form button:hover {
+    background: var(--neutral-700);
+    border-color: var(--neutral-700);
 }
 
 .cta {
@@ -341,6 +359,17 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+}
+
+.cta-buttons .btn-primary, .cta-buttons .btn-secondary {
+    background-color: var(--neutral-900); /* Black background */
+    color: var(--neutral-50); /* White text */
+    border: 1px solid var(--neutral-900);
+}
+
+.cta-buttons .btn-primary:hover, .cta-buttons .btn-secondary:hover {
+    background-color: var(--neutral-700);
+    border-color: var(--neutral-700);
 }
 
 @media (max-width: 768px) {

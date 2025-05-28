@@ -284,6 +284,16 @@
 .form-group textarea,
 .btn-primary,
 .btn-secondary {
+    background: var(--neutral-900);
+    color: var(--neutral-50);
+    border: 1px solid var(--neutral-900);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    background: var(--neutral-700);
+    border-color: var(--neutral-700);
+}
     will-change: transform;
 }
 

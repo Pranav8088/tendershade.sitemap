@@ -1,12 +1,12 @@
 :root {
   /* Color Variables */
-  --timeline-primary: #0056b3;
-  --timeline-secondary: #00a0e9;
-  --timeline-accent: #FFCE00;
+  --timeline-primary: #1A1A1A; /* Black */
+  --timeline-secondary: #FAFAFA; /* White */
+  --timeline-accent: #fffb00; /* Gray */
   --timeline-text-light: #ffffff;
   --timeline-text-dark: #333333;
   --timeline-bg-light: rgba(255, 255, 255, 0.9);
-  --timeline-bg-dark: rgba(0, 86, 179, 0.9);
+  --timeline-bg-dark: rgba(0, 0, 0, 0.9);
   
   /* Spacing Variables */
   --timeline-spacing-xs: 0.5rem;

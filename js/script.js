@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         heroSlides[0].classList.add('active');
     }
     
-    function showSlide(index) {
+    function showSlide(index, lazyLoaderInstance) {
         // Remove active class from all slides
         heroSlides.forEach(slide => {
             slide.classList.remove('active');
@@ -107,20 +107,39 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add active class to selected slide and dot
         heroSlides[index].classList.add('active');
         sliderDots[index].classList.add('active');
+
+        // Manually trigger lazy loading for the active slide's image
+        const activeImage = heroSlides[index].querySelector('.hero-image');
+        if (activeImage && lazyLoaderInstance) {
+            lazyLoaderInstance.loadImage(activeImage);
+        }
     }
     
-    function nextSlide() {
-        currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
-        showSlide(currentSlideIndex);
+    // Initialize lazy loading when DOM is loaded
+    const lazyLoader = new LazyLoader();
+
+    // Refresh lazy loading after dynamic content updates
+    document.addEventListener('contentChanged', () => {
+        lazyLoader.refresh();
+    });
+
+    // Initial call to show the first slide with the lazyLoader instance
+    if (heroSlides.length > 0) {
+        showSlide(currentSlideIndex, lazyLoader);
     }
-    
+
     function startSlideInterval() {
         // Clear any existing interval
         clearInterval(slideInterval);
         // Set 3 second interval for slide transition
         slideInterval = setInterval(nextSlide, 3000);
     }
-    
+
+    function nextSlide() {
+        currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
+        showSlide(currentSlideIndex, lazyLoader);
+    }
+
     // Initialize automatic slideshow if there are slides
     if (heroSlides.length > 0) {
         startSlideInterval();
@@ -129,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sliderDots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 currentSlideIndex = index;
-                showSlide(currentSlideIndex);
+                showSlide(currentSlideIndex, lazyLoader);
                 startSlideInterval(); // Reset interval after manual navigation
             });
         });
@@ -1291,4 +1310,4 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('beforeunload', function() {
         // Any cleanup needed
     });
-})(); 
+})();

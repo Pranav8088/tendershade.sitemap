@@ -94,6 +94,12 @@
 }
 
 .cta .btn-primary {
-    background: white;
-    color: #0066cc;
+    background: var(--neutral-900); /* Black background */
+    color: var(--neutral-50); /* White text */
+    border: 1px solid var(--neutral-900);
+}
+
+.cta .btn-primary:hover {
+    background: var(--neutral-700);
+    border-color: var(--neutral-700);
 }
