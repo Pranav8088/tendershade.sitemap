@@ -1,6 +1,6 @@
 /* Demo-specific styles */
 body {
-    background-color: #f0f4f8; /* Slightly different background for demo */
+    background-color: var(--neutral-50);
 }
 .demo-section {
     padding: 4rem 0;

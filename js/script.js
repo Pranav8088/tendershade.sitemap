@@ -7,12 +7,12 @@ let isScrolled = false;
 // Handle scroll for header
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.site-header');
-    if (window.scrollY > 50 && !isScrolled) {
-        header.classList.add('scrolled');
-        isScrolled = true;
-    } else if (window.scrollY <= 50 && isScrolled) {
-        header.classList.remove('scrolled');
-        isScrolled = false;
+    if (header) {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     }
 });
 
@@ -81,7 +81,7 @@ window.addEventListener('resize', () => {
 });
 
 // Banner Slider Functionality
-document.addEventListener('DOMContentLoaded', function() {
+function initBannerSlider() {
     // Hero Slider
     const heroSlides = document.querySelectorAll('.hero-slide');
     const sliderDots = document.querySelectorAll('.slider-dot');
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-});
+}
         
 // Animate on scroll
 document.addEventListener('DOMContentLoaded', function() {
@@ -196,6 +196,75 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
         }
     });
+
+    // New Timeline Scroll Logic
+    const timelineItems = document.querySelectorAll('.new-timeline-section .timeline-item');
+    const timelineSection = document.querySelector('.new-timeline-section');
+    let activeItemIndex = 0;
+
+    function updateTimelineVisibility() {
+        if (!timelineSection) return;
+
+        const sectionRect = timelineSection.getBoundingClientRect();
+        const sectionCenter = sectionRect.top + sectionRect.height / 2;
+
+        // Determine which item is closest to the center of the section
+        let closestItemIndex = -1;
+        let minDistance = Infinity;
+
+        timelineItems.forEach((item, index) => {
+            const itemRect = item.getBoundingClientRect();
+            const itemCenter = itemRect.top + itemRect.height / 2;
+            const distance = Math.abs(sectionCenter - itemCenter);
+
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestItemIndex = index;
+            }
+        });
+
+        if (closestItemIndex !== -1 && closestItemIndex !== activeItemIndex) {
+            activeItemIndex = closestItemIndex;
+            console.log('Active timeline item index:', activeItemIndex); // Debugging line
+            timelineItems.forEach((item, index) => {
+                item.classList.remove('active', 'prev', 'next');
+                if (index === activeItemIndex) {
+                    item.classList.add('active');
+                } else if (index === activeItemIndex - 1) {
+                    item.classList.add('prev');
+                } else if (index === activeItemIndex + 1) {
+                    item.classList.add('next');
+                }
+                // All other items will remain without active/prev/next classes,
+                // making them hidden by the default .timeline-item styling.
+            });
+        }
+    }
+
+    // Attach to scroll and resize events
+    window.addEventListener('scroll', updateTimelineVisibility);
+    window.addEventListener('resize', updateTimelineVisibility);
+
+    // Ensure the first item is active on load and set initial visibility for adjacent items
+    if (timelineItems.length > 0) {
+        // Initially set all items to their default (visible) state
+        timelineItems.forEach((item, index) => {
+            item.classList.remove('active', 'prev', 'next');
+        });
+        // Set the first item as active and its neighbors as prev/next if they exist
+        timelineItems[0].classList.add('active');
+        if (timelineItems.length > 1) {
+            timelineItems[1].classList.add('next');
+        }
+        if (timelineItems.length > 0) {
+            // If there's more than one item, the last item can be considered 'prev' to the first in a cyclical sense if desired, or just left as default.
+            // For now, we'll just ensure the first is active and its immediate next is 'next'.
+        }
+    }
+    // Call updateTimelineVisibility after initial setup to ensure correct state
+    // This will re-evaluate based on scroll position, potentially overriding the initial setup if not at the top.
+    updateTimelineVisibility();
+    console.log('Initial timeline setup complete. Active item:', activeItemIndex); // Debugging line
 });
         
 // Smooth Scrolling for Anchor Links
@@ -469,8 +538,40 @@ function initCountdown() {
 
 // Call all initializations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Define initBannerSlider function
+    function initBannerSlider() {
+        // Your banner slider initialization code here
+        // For example, if you have a specific slider library or custom code
+        // that initializes a banner, it would go here.
+        // If there's no banner slider, this function can remain empty or be removed.
+        console.log('initBannerSlider called');
+    }
+
     initBannerSlider();
     initCountdown();
+    initFAQ();
+    initResourceTabs();
+    removePricingSections();
+    initAnimateOnScroll();
+    
+    // Initialize testimonial slider if it exists
+    if (document.querySelector('.testimonial-slider')) {
+        // Ensure testimonial slider initialization is called correctly
+        // The testimonial slider logic is already wrapped in a DOMContentLoaded listener,
+        // so calling it directly here might be redundant or cause issues if not a function.
+        // If it's a function, call it. Otherwise, ensure its existing DOMContentLoaded block is sufficient.
+        // For now, assuming it's a function that needs to be called.
+        // If the testimonial slider is already initialized by its own DOMContentLoaded listener,
+        // this line might not be needed or might need adjustment.
+        // For example, if the testimonial slider code is self-executing on DOMContentLoaded,
+        // you don't need to call a function here.
+        // Let's assume for now that the testimonial slider setup is self-contained
+        // within its own DOMContentLoaded block and doesn't need an explicit call here.
+        // If it was meant to be a callable function, it should be defined as such.
+        // Based on the provided code, the testimonial slider is already initialized
+        // within its own DOMContentLoaded listener, so no explicit call is needed here.
+        // The previous error was likely due to initBannerSlider not being defined.
+    }
 });
 
 // Animation on Scroll
@@ -491,32 +592,240 @@ window.addEventListener('scroll', animateOnScroll);
 window.addEventListener('load', animateOnScroll);
 
 // Testimonial Slider
-const testimonialSlider = () => {
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    let currentIndex = 0;
-    
-    const showTestimonial = (index) => {
-        testimonials.forEach(testimonial => {
-            testimonial.style.display = 'none';
-        });
-        
-        testimonials[index].style.display = 'block';
-        currentIndex = index;
-    };
-    
-    // Show first testimonial
-    showTestimonial(0);
-    
-    // Auto-rotate testimonials
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % testimonials.length;
-        showTestimonial(currentIndex);
-    }, 5000);
-};
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonialSlider = document.querySelector('.testimonial-slider');
+    const sliderDotsContainer = document.querySelector('.slider-dots');
+    let currentTestimonialIndex = 0;
+    let testimonialInterval;
 
-// Initialize testimonial slider if exists
-if (document.querySelector('.testimonials-slider')) {
-    testimonialSlider();
+    if (!testimonialSlider || !sliderDotsContainer) {
+        return; // Exit if elements not found
+    }
+
+    const testimonialSlides = testimonialSlider.querySelectorAll('.testimonial-slide');
+    const testimonialDots = sliderDotsContainer.querySelectorAll('.dot');
+
+    function showTestimonial(index) {
+        testimonialSlides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+        testimonialDots.forEach((dot, i) => {
+            dot.classList.remove('active');
+            if (i === index) {
+                dot.classList.add('active');
+            }
+        });
+    }
+
+    function nextTestimonial() {
+        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialSlides.length;
+        showTestimonial(currentTestimonialIndex);
+    }
+
+    function startTestimonialInterval() {
+        clearInterval(testimonialInterval);
+        testimonialInterval = setInterval(nextTestimonial, 5000); // Change slide every 5 seconds
+    }
+
+    // Initial display
+    if (testimonialSlides.length > 0) {
+        showTestimonial(currentTestimonialIndex);
+        startTestimonialInterval();
+    }
+
+    // Dot navigation
+    testimonialDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentTestimonialIndex = index;
+            showTestimonial(currentTestimonialIndex);
+            startTestimonialInterval(); // Reset interval on manual navigation
+        });
+    });
+
+    // Pause on hover
+    testimonialSlider.addEventListener('mouseenter', () => clearInterval(testimonialInterval));
+    testimonialSlider.addEventListener('mouseleave', () => startTestimonialInterval());
+});
+
+// New Timeline Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2 // Trigger when 20% of the item is visible
+    };
+
+    const timelineObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    timelineItems.forEach(item => {
+        timelineObserver.observe(item);
+    });
+});
+
+// Universal include for header and footer
+document.addEventListener('DOMContentLoaded', function() {
+    const includes = document.querySelectorAll('[data-include]');
+    includes.forEach(include => {
+        const filePath = include.getAttribute('data-include');
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                include.innerHTML = data;
+                // Re-run scripts after content is loaded, especially for header/footer
+                if (filePath === 'components/header.html') {
+                    // Re-initialize mobile menu and dropdowns for the new header content
+                    const mobileToggle = document.querySelector('.mobile-toggle');
+                    const mainNav = document.querySelector('.main-nav');
+                    const dropdownLinks = document.querySelectorAll('.has-dropdown > a');
+
+                    if (mobileToggle && mainNav) {
+                        mobileToggle.addEventListener('click', () => {
+                            mobileToggle.classList.toggle('active');
+                            mainNav.classList.toggle('active');
+                        });
+                    }
+
+                    dropdownLinks.forEach(link => {
+                        const parent = link.parentElement;
+                        link.addEventListener('click', (e) => {
+                            if (window.innerWidth <= 992) {
+                                e.preventDefault();
+                                dropdownLinks.forEach(otherLink => {
+                                    const otherParent = otherLink.parentElement;
+                                    if (otherParent !== parent && otherParent.classList.contains('active')) {
+                                        otherParent.classList.remove('active');
+                                    }
+                                });
+                                parent.classList.toggle('active');
+                            }
+                        });
+                    });
+
+                    document.addEventListener('click', (e) => {
+                        if (window.innerWidth <= 992 && mainNav && mainNav.classList.contains('active')) {
+                            if (!mainNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+                                mainNav.classList.remove('active');
+                                mobileToggle.classList.remove('active');
+                                dropdownLinks.forEach(link => {
+                                    link.parentElement.classList.remove('active');
+                                });
+                            }
+                        }
+                    });
+
+                    let resizeTimeout;
+                    window.addEventListener('resize', () => {
+                        clearTimeout(resizeTimeout);
+                        resizeTimeout = setTimeout(() => {
+                            if (window.innerWidth > 992) {
+                                if (mainNav && mainNav.classList.contains('active')) {
+                                    mainNav.classList.remove('active');
+                                }
+                                if (mobileToggle && mobileToggle.classList.contains('active')) {
+                                    mobileToggle.classList.remove('active');
+                                }
+                                dropdownLinks.forEach(link => {
+                                    link.parentElement.classList.remove('active');
+                                });
+                            }
+                        }, 250);
+                    });
+                }
+                // Dispatch a custom event to notify that content has changed
+                document.dispatchEvent(new Event('contentChanged'));
+            })
+            .catch(error => console.error('Error loading include file:', filePath, error));
+    });
+});
+
+// Cookie Consent
+document.addEventListener('DOMContentLoaded', function() {
+    const cookieConsent = document.getElementById('cookie-consent');
+    const acceptCookies = document.getElementById('accept-cookies');
+
+    if (cookieConsent && acceptCookies) {
+        // Check if cookie consent has been given
+        if (!localStorage.getItem('cookieConsentGiven')) {
+            cookieConsent.style.display = 'block';
+        }
+
+        acceptCookies.addEventListener('click', function() {
+            localStorage.setItem('cookieConsentGiven', 'true');
+            cookieConsent.style.display = 'none';
+        });
+    }
+});
+
+// Back to Top Button
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('back-to-top');
+
+    if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+
+// Contact Form Submission (if applicable)
+// Assuming you have a contact form with id 'contact-form'
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(contactForm);
+        const formProps = Object.fromEntries(formData);
+
+        // Example: Send data to a server using fetch API
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formProps),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            alert('Your message has been sent successfully!');
+            contactForm.reset(); // Clear the form
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again later.');
+        });
+    });
 }
 
 // Form Input Animation
@@ -533,28 +842,32 @@ document.querySelectorAll('.input-group input, .input-group textarea').forEach(i
 });
 
 // Header Scroll Effect
-const header = document.querySelector('.header');
-let lastScroll = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.site-header');
+    if (header) { // Ensure header exists before adding event listener
+        let lastScroll = 0;
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll <= 0) {
-        header.classList.remove('scroll-up');
-        return;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                // Scroll Down
+                header.classList.remove('scroll-up');
+                header.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                // Scroll Up
+                header.classList.remove('scroll-down');
+                header.classList.add('scroll-up');
+            }
+            
+            lastScroll = currentScroll;
+        });
     }
-    
-    if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-        // Scroll Down
-        header.classList.remove('scroll-up');
-        header.classList.add('scroll-down');
-    } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-        // Scroll Up
-        header.classList.remove('scroll-down');
-        header.classList.add('scroll-up');
-    }
-    
-    lastScroll = currentScroll;
 });
 
 // Initialize FAQ functionality
@@ -650,11 +963,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initResourceTabs();
     removePricingSections();
     initAnimateOnScroll();
-    
+
     // Initialize testimonial slider if it exists
-    if (document.querySelector('.testimonial-slider')) {
-        testimonialSlider();
-    }
+    // The testimonial slider logic is already wrapped in a DOMContentLoaded listener,
+    // so no explicit call is needed here.
 }); 
 
 // Lazy Load Images for Performance
@@ -1090,7 +1402,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => {
                         if (element.parentNode && element.parentNode.classList.contains('image-placeholder')) {
                             const parent = element.parentNode.parentNode;
-                            if (parent) {
+                            if (parent && element.parentNode) { // Add null check for element.parentNode
                                 parent.appendChild(element);
                                 element.parentNode.removeChild(element.parentNode);
                             }
